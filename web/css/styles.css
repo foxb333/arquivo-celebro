@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Layout principal com Grid */
+.container {
+    display: grid;
+    grid-template-areas:
+        "menu cabecalho"
+        "menu principal";
+    grid-template-columns: 200px 1fr;
+    min-height: 100vh;
+    gap: 10px;
+}
+
+
+/* Menu Lateral */
+.menu-lateral {
+    grid-area: menu;
+    background-color: #741616;
+    padding: 15px;
+}
+
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+
+}
+
+
+.menu-lateral a {
+    text-decoration: none;
+    color: #e58787;
+}
+
+
+/* Cabeçalho */
+.cabecalho {
+    grid-area: cabecalho;
+    background: linear-gradient(90deg, #000000, #00d084);
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.cabecalho h1 {
+    margin: 0;
+}
+
+
+/* Botão com transição */
+
+
+.btn-animate {
+    background-color: #ffffff;
+    color: #0068d8;
+    border: 2px solid #033871;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+.btn-animate:hover {
+    background-color: #007bfe;
+    color: white;
+}
+
+
+/* Conteúdo principal */
+.principal {
+    grid-area: principal;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+
+
+/* Caixas de conteúdo */
+.content-box {
+    background-color: #4df883;
+    padding: 20px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease-out forwards;
+
+
+}
+
+
+/* Animação */
+
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Responsividade */
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "cabecalho"
+            "principal";
+    }
+
+
+    .menu-lateral {
+        display: none;
+    }
+
+
+}
+
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        grid-template-columns: 180px 1fr;
+    }
+
+
+}
